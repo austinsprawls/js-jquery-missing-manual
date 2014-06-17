@@ -24,17 +24,17 @@
 
 #login .close {
 	background-image: url(../_images/close.png);
-	background-color: rgb(110,138,195);	
+	background-color: rgb(110,138,195);
 }
 
 #open:hover {
 	color: rgb(0,0,0);
-	background-color: rgb(110,138,195);	
+	background-color: rgb(110,138,195);
 }
 
 #login form {
 	padding: 10px 10px 10px 10px;
-	display: none;	
+	display: none;
 	background-color: rgb(255,255,255);
 }
 #login label {
@@ -45,15 +45,24 @@
 	color: rgb(58,80,123);
 }
 #login input {
-	font-size: 14px;	
+	font-size: 14px;
 }
 #login #button {
-	margin-left: 50px;	
+	margin-left: 50px;
 }
 </style>
 <script>
 $(document).ready(function() {
- 
+	$('#open').toggle(
+		function(){
+			$('#login form').slideDown();
+			$(this).addClass('close');
+		},
+		function(){
+			$('#login form').fadeOut(600);
+			$(this).removeClass('close');
+		}
+	);//end toggle
 }); // end ready
 </script>
 </head>
