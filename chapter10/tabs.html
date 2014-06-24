@@ -7,7 +7,7 @@
 <style>
 .tabs {
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 	zoom : 1;
 }
 .tabs li {
@@ -34,31 +34,40 @@
 
 .panelContainer {
 	clear: both;
-	margin-bottom: 25px;	
-	border: 1px solid rgb(153,153,153);	
+	margin-bottom: 25px;
+	border: 1px solid rgb(153,153,153);
 	background-color: white;
 	padding: 10px;
 }
 
 .panel h2 {
 	color: rgb(57,78,121);
-	text-shadow: none;		
+	text-shadow: none;
 }
 .panel p {
-	color: black;	
+	color: black;
 }
 </style>
 <script src="../_js/jquery-1.7.2.min.js"></script>
 <script>
 $(document).ready(function() {
-	
+	$('.tabs a').click(function(){
+		$this = $(this);
+		$('.panel').hide();
+		$('.tabs a.active').removeClass('active');
+		$this.addClass('active').blur();
+		var panel = $this.attr('href');
+		$(panel).fadeIn(250);
+		return false;
+	});//end click
+	$('.tabs li:first a').click();
 }); // end ready
 </script>
 </head>
 <body>
 <div class="wrapper">
 	<div class="header">
-		
+
 		<p class="logo">JavaScript <i>&</i> jQuery <i class="mm">The<br>Missing<br>Manual</i></p>
 	</div>
 	<div class="content">
